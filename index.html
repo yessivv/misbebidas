@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+       <link rel="stylesheet" href="https://use.typekit.net/cyv4qiz.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]--> 
+
+
+  
+<h1 class="outline-text">mis bebidas</h1>
+
+  <div class="container">
+<p>mis bebidas in english means 'my drinks'. <br>
+   I wanted to make this site  because throughout <br>
+  all my semesters I always have a drink in hand. <br>
+   Drinks for me hold memories. I can always reminisce <br>
+   on a drink I loved and the day that came with it. <br>
+   I hope to bring this experience for everyone ! 
+   <br>
+   <br>
+   scroll for drinks !
+  </p>
+</div>
+
+<div class="imgcontainer">
+<img class="tilt" src="mug.png">
+<span id="trigger">
+<h2 class="outline-text2 centered">upload your <br> bebidas</h2>
+</span>
+<div id="card">
+  <button id="closeBtn">✕</button>
+  <h4>
+    
+  </h4>
+</div>
+<a href="profile.html">
+<h3 class="outline-text2 centeredtop">view your <br> profile</h3>
+</a>
+
+</div>
+<div class="grid-container">
+     <div class="item">
+    <figure>
+      <img
+        class="triggerImg"
+        src="IMG_9991.JPG"
+        data-title="edith's - coffee slushie"
+        data-location="64 Charles St.&lt;br&gt;New York, NY"
+        data-price="$8.99"
+        data-ingredients="Cold Brew, Tahini"
+        data-rating="This coffee slushie is not too sweet and is such a great summer drink! I also love that it is dairy free."
+        data-img="IMG_9991.JPG"
+      >
+      <marquee>
+        <figcaption>edith's - coffee slushie</figcaption>
+      </marquee>
+    </figure>
+  </div>
+ 
+
+<div class="item">
+    <figure>
+      <img
+        class="triggerImg"
+        src="blankstreet.jpg"
+        data-title="blank street - daydream matcha"
+        data-location="236 Lafayette St."
+        data-price="$8.06"
+        data-ingredients="Matcha, Vanilla, Cinnamon, Honey, Oat Milk"
+        data-rating="I call this my favorite fake matcha because it always taste like a sweet drink
+        to me rather than an actual matcha &lt;br&gt;but it sweet and comforting i love!"
+        data-img="blankstreet.jpg"
+      >
+      <marquee>
+        <figcaption>blank street - daydream matcha</figcaption>
+      </marquee>
+    </figure>
+  </div>
+ 
+ <div class="item">
+    <figure>
+      <img
+        class="triggerImg"
+        src="IMG_0036.jpg"
+        data-title="gem home - yuzu chamomile iced tea"
+        data-location="181 Mott St.&lt;br&gt;New York, NY"
+        data-price="$6"
+        data-ingredients="Yuzu, Chamomile"
+        data-rating="I loveee this drink &lt;br&gt;from gem home! It is sweet with &lt;br&gt;a hint of sourness but the way
+        its a tea makes it the perfect drink for the summer and &lt;br&gt;winter."
+        data-img="IMG_0036.jpg"
+      >
+      <marquee>
+        <figcaption>gem home - yuzu chamomile iced tea</figcaption>
+      </marquee>
+    </figure>
+  </div>
+
+
+   <div class="item">
+    <figure>
+      <img
+        class="triggerImg"
+        src="IMG_9620.JPG"
+        data-title="gemma - matcha latte"
+        data-location="335 Bowery&lt;br&gt;New York, NY"
+        data-price="$8"
+        data-ingredients="matcha, oatmilk"
+        data-rating="this hot matcha actually &lt;br&gt;tasted really good the matcha &lt;br&gt;was more grassy then nutty which i prefer"
+        data-img="IMG_9620.jpg"
+      >
+      <marquee>
+        <figcaption>gemma - matcha latte</figcaption>
+      </marquee>
+    </figure>
+  </div>
+ 
+</div>
+  </div>
+  </div>
+ 
+  <div class="overlay-backdrop" id="backdrop"></div>
+<div class="overlay-box" id="overlayBox">
+  <button class="close-btn" id="closeBtn">&times;</button>
+  <p class="header" id="overlayTitle"></p>
+  <hr>
+  <div class="containertwo">
+    <p class="info" id="overlayInfo"></p>
+    <img class="size" id="overlayImg" src="" alt="">
+  </div>
+</div>
+
+
+        <script>
+const backdrop = document.getElementById('backdrop');
+  const box      = document.getElementById('overlayBox');
+  const closeBtn = document.getElementById('closeBtn');
+ 
+  function openOverlay(e) {
+    const img = e.currentTarget;
+ 
+    // Populate the overlay with this card's data
+    document.getElementById('overlayTitle').textContent = img.dataset.title;
+    document.getElementById('overlayImg').src = img.dataset.img;
+    document.getElementById('overlayInfo').innerHTML =
+      `<u>Location:</u> ${img.dataset.location}<br>
+       <u>Price:</u> ${img.dataset.price}<br>
+       <u>Ingredients:</u> ${img.dataset.ingredients}<br>
+       <u>Rating:</u> ${img.dataset.rating}`;
+ 
+    backdrop.classList.add('open');
+    box.classList.add('open');
+    requestAnimationFrame(() => box.classList.add('visible'));
+  }
+ 
+  function closeOverlay() {
+    box.classList.remove('visible');
+    box.addEventListener('transitionend', () => {
+      box.classList.remove('open');
+      backdrop.classList.remove('open');
+    }, { once: true });
+  }
+ 
+  // Attach listener to EVERY trigger image
+  document.querySelectorAll('.triggerImg').forEach(img => {
+    img.addEventListener('click', openOverlay);
+  });
+ 
+  closeBtn.addEventListener('click', closeOverlay);
+  backdrop.addEventListener('click', closeOverlay);
+  document.addEventListener('keydown', e => e.key === 'Escape' && closeOverlay());
+
+   document.getElementById('trigger').addEventListener('click', () => {
+    document.getElementById('card').style.display = 'block';
+  });
+
+  document.getElementById('closeBtn').addEventListener('click', () => {
+    document.getElementById('card').style.display = 'none';
+  });
+
+
+        </script>
+    </body>
+</html>

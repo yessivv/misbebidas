@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://use.typekit.net/cyv4qiz.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+<a href="index.html">
+ <h1 class="outline-text">mis bebidas</h1>       
+</a>
+
+<div class="grid-containertwo">      
+<h1 class="profiletext">yessi's drinks</h1>
+<img id="mugtwo" class="rotate" src="mugtwo.png">
+</div> 
+   
+<div class="infocontainer">
+    <h4>Age 19: <br>
+        School: Parsons School of Design <br>
+        Favorite Drinks: Iced Tea, Matcha, Boba <br>
+        <br>
+        i always buy drinks so recommend me and my <br> cat anything !
+    </h4>
+</div>
+    
+<div class="grid-container">
+  <div class="item">
+    <figure>
+    <img id="triggerImg" src="IMG_9991.JPG">
+    <marquee>
+     <figcaption>Edith's - Coffee Slushie</figcaption>
+     </marquee>
+</figure>
+    </div>    
+
+ <div class="overlay-backdrop" id="backdrop"></div>
+ <div class="overlay-box" id="overlayBox">
+    <button class="close-btn" id="closeBtn">&times;</button>
+  <p class="header">Edith's - Coffee Slushie</p>
+  <hr>
+  <div class="containertwo">
+ <p class="info"><u>Location:</u> 64 Charles St. <br> New York, NY <br>
+  <u>Price:</u> $8.99 <br>
+  <u>Ingredients:</u> Cold Brew, Tahini <br>
+  <u>Rating:</u> This coffee slushie <br>
+  is not too sweet and is such <br>
+  a great summer drink! I also <br>
+  love that it is dairy free. 
+
+ </p>
+<img class="size" src="IMG_9991.JPG">
+</div>
+  
+  </div>
+
+
+
+
+
+        <script>
+             const img  = document.getElementById('triggerImg');
+    const backdrop = document.getElementById('backdrop');
+    const box      = document.getElementById('overlayBox');
+    const closeBtn = document.getElementById('closeBtn');
+ 
+    function openOverlay() {
+      backdrop.classList.add('open');
+      box.classList.add('open');
+      // tiny delay so the transition fires after display:block
+      requestAnimationFrame(() => box.classList.add('visible'));
+    }
+ 
+    function closeOverlay() {
+      box.classList.remove('visible');
+      box.addEventListener('transitionend', () => {
+        box.classList.remove('open');
+        backdrop.classList.remove('open');
+      }, { once: true });
+    }
+ 
+    img.addEventListener('click', openOverlay);
+    closeBtn.addEventListener('click', closeOverlay);
+    backdrop.addEventListener('click', closeOverlay);
+    document.addEventListener('keydown', e => e.key === 'Escape' && closeOverlay());      
+
+        </script>
+    </body>
+</html>
